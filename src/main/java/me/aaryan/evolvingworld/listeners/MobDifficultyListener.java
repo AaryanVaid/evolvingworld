@@ -52,11 +52,11 @@ public class MobDifficultyListener implements Listener {
             mob.setHealth(maxHealthAttr.getBaseValue());
         }
 
-        // Apply damage
-        if (mob.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE) != null) {
-            double baseDamage = mob.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).getBaseValue();
-            mob.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE)
-                    .setBaseValue(baseDamage * damageMultiplier);
+// Apply damage
+        AttributeInstance attackDamageAttr = mob.getAttribute(Attribute.ATTACK_DAMAGE);
+        if (attackDamageAttr != null) {
+            double baseDamage = attackDamageAttr.getBaseValue();
+            attackDamageAttr.setBaseValue(baseDamage * damageMultiplier);
         }
     }
 }
