@@ -8,3 +8,6 @@ commands:
     usage: /phase [advance]
   phasebooster:
     description: Gives a Phase Booster (debug)
+  phasedebug:
+    description: Debug world phase system
+    usage: /phasedebug
