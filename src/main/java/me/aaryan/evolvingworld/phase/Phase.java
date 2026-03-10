@@ -25,6 +25,7 @@ public enum Phase {
         }
         return PHASE_1;
     }
+
     public Phase next() {
         return switch (this) {
             case PHASE_1 -> PHASE_2;
