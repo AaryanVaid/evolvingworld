@@ -27,12 +27,13 @@ public enum Phase {
     }
 
     public Phase next() {
-        return switch (this) {
-            case PHASE_1 -> PHASE_2;
-            case PHASE_2 -> PHASE_3;
-            case PHASE_3 -> PHASE_4;
-            default -> PHASE_4;
-        };
-    }
+
+        int nextLevel = this.level + 1;
+
+        for (Phase phase : values()) {
+            if (phase.level == nextLevel) {
+                return phase;
+            }
+        }
 
 }
