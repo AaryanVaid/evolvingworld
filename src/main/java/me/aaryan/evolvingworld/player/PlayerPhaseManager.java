@@ -3,7 +3,6 @@ package me.aaryan.evolvingworld.player; // Correct package
 import me.aaryan.evolvingworld.EvolvingWorld;
 import me.aaryan.evolvingworld.phase.Phase;
 import org.bukkit.entity.Player;
-
 import java.util.UUID;
 
 public class PlayerPhaseManager {
