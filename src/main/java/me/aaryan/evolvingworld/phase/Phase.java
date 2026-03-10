@@ -23,13 +23,6 @@ public enum Phase {
                 return phase;
             }
         }
-        return null; // no next phase
-    }
-
-    public static Phase fromLevel(int level) {
-        for (Phase p : values()) {
-            if (p.level == level) return p;
-        }
         return PHASE_1;
     }
     public Phase next() {
