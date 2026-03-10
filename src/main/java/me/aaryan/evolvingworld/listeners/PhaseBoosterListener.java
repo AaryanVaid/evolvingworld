@@ -47,7 +47,7 @@ public class PhaseBoosterListener implements Listener {
         }
 
         boolean advanced = plugin.getPlayerPhaseManager()
-                .advancePlayerPhase(player);
+                .tryAdvancePlayerPhase(player);
 
         if (!advanced) return;
 
