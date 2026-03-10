@@ -35,7 +35,7 @@ public class PhaseBoosterListener implements Listener {
         Phase playerPhase = plugin.getPlayerPhaseManager()
                 .getPlayerPhase(player);
 
-        // ❌ Booster must match player's current phase
+        // Booster must match player phase
         if (boosterLevel != playerPhase.getLevel()) {
             player.sendMessage("§cYou can only use your current phase booster.");
             return;
