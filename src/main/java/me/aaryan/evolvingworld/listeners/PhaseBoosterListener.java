@@ -61,5 +61,6 @@ public class PhaseBoosterListener implements Listener {
 
         // consume booster
         item.setAmount(item.getAmount() - 1);
+
     }
 }
