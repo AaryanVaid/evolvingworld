@@ -16,6 +16,7 @@ public class PhaseManager {
     }
 
     private void load() {
+
         int level = plugin.getConfig().getInt("server-phase", 1);
 
         currentPhase = Phase.fromLevel(level);
