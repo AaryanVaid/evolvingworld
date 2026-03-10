@@ -55,7 +55,8 @@ public class PhaseBoosterListener implements Listener {
                 .getPlayerPhase(player);
 
         player.sendMessage(
-                "§aYou have advanced to §ePhase " + newPlayerPhase.getLevel() + "§a!"
+                "§aYou have advanced to §ePhase " +
+                        newPhase.getLevel() + "§a!"
         );
 
 
