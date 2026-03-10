@@ -3,6 +3,7 @@ package me.aaryan.evolvingworld.listeners;
 import me.aaryan.evolvingworld.EvolvingWorld;
 import me.aaryan.evolvingworld.phase.Phase;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Monster;
 import org.bukkit.event.EventHandler;
