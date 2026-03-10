@@ -47,6 +47,4 @@ public class PlayerPhaseManager {
         setPlayerPhase(player, next);
         return true;
     }
-
-
 }
