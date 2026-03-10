@@ -37,7 +37,11 @@ public class PhaseBoosterListener implements Listener {
 
         // Booster must match player phase
         if (boosterLevel != playerPhase.getLevel()) {
-            player.sendMessage("§cYou can only use your current phase booster.");
+
+            player.sendMessage(
+                    "§cYou can only use your current phase booster."
+            );
+
             return;
         }
 
