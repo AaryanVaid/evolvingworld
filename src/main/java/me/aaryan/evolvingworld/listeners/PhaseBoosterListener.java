@@ -59,18 +59,7 @@ public class PhaseBoosterListener implements Listener {
                         newPhase.getLevel() + "§a!"
         );
 
-
-        // 🔒 RULE 3 — world advances ONLY here
-        if (playerPhase.getLevel() == worldPhase.getLevel()
-                && newPlayerPhase.getLevel() == worldPhase.getLevel() + 1) {
-
-            plugin.getPhaseManager().advancePhase();
-
-            plugin.getWorldPhaseRewardManager()
-                    .giveReward(player, plugin.getPhaseManager().getCurrentPhase());
-
-        }
-
+        // consume booster
         item.setAmount(item.getAmount() - 1);
     }
 }
