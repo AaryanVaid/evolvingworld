@@ -36,4 +36,5 @@ public enum Phase {
             }
         }
 
-}
+        return null;
+    }
