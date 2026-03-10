@@ -63,7 +63,9 @@ public class PhaseManager {
 
         Phase next = currentPhase.next();
 
-        currentPhase = currentPhase.next();
+        if (next == null) return;
+
+        currentPhase = next;
 
         plugin.getConfig().set("server-phase", currentPhase.getLevel());
         plugin.saveConfig();
