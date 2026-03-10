@@ -60,7 +60,8 @@ public class PhaseManager {
     }
 
     public void advancePhase() {
-        if (currentPhase == Phase.PHASE_4) return;
+
+        Phase next = currentPhase.next();
 
         currentPhase = currentPhase.next();
 
