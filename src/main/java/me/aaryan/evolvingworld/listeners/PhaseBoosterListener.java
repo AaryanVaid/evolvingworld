@@ -28,6 +28,7 @@ public class PhaseBoosterListener implements Listener {
         if (!PhaseBoosterItem.isPhaseBooster(item)) return;
 
         event.setCancelled(true);
+
         Player player = event.getPlayer();
 
         int boosterLevel = PhaseBoosterItem.getBoosterLevel(item);
