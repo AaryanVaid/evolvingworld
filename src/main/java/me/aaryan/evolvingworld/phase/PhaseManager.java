@@ -8,6 +8,8 @@ public class PhaseManager {
     private final EvolvingWorld plugin;
     private Phase currentPhase;
 
+    private final double REQUIRED_PERCENT = 60.0;
+
     public PhaseManager(EvolvingWorld plugin) {
         this.plugin = plugin;
         load();
