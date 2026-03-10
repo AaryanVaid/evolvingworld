@@ -51,7 +51,7 @@ public class PhaseBoosterListener implements Listener {
 
         if (!advanced) return;
 
-        Phase newPlayerPhase = plugin.getPlayerPhaseManager()
+        Phase newPhase = plugin.getPlayerPhaseManager()
                 .getPlayerPhase(player);
 
         player.sendMessage(
