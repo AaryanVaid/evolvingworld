@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 public class PhaseManager {
 
     private final EvolvingWorld plugin;
+
     private Phase currentPhase;
 
     private final double REQUIRED_PERCENT = 60.0;
