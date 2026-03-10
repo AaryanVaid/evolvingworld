@@ -2,6 +2,7 @@ package me.aaryan.evolvingworld;
 
 import me.aaryan.evolvingworld.commands.GivePhaseBoosterCommand;
 import me.aaryan.evolvingworld.commands.PhaseCommand;
+import me.aaryan.evolvingworld.commands.PhaseDebugCommand;
 import me.aaryan.evolvingworld.items.PhaseBoosterItem;
 import me.aaryan.evolvingworld.items.PhaseBoosterRecipe;
 import me.aaryan.evolvingworld.listeners.*;
