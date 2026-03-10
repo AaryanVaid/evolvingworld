@@ -1,4 +1,4 @@
-package me.aaryan.evolvingworld.player;
+package me.aaryan.evolvingworld.player; // Correct package
 
 import me.aaryan.evolvingworld.EvolvingWorld;
 import me.aaryan.evolvingworld.phase.Phase;
