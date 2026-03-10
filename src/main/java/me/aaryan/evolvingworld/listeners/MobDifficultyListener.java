@@ -44,11 +44,12 @@ public class MobDifficultyListener implements Listener {
         };
 
         // Apply health
-        if (mob.getAttribute(Attribute.GENERIC_MAX_HEALTH) != null) {
-            double baseHealth = mob.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue();
-            mob.getAttribute(Attribute.GENERIC_MAX_HEALTH)
-                    .setBaseValue(baseHealth * healthMultiplier);
-            mob.setHealth(mob.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
+        AttributeInstance maxHealthAttr = mob.getAttribute(Attribute.MAX_HEALTH);
+        if (maxHealthAttr != null) {
+            double baseHealth = maxHealthAttr.getBaseValue();
+            maxHealthAttr.setBaseValue(baseHealth * healthMultiplier);
+            // You must set health AFTER updating the attribute base value
+            mob.setHealth(maxHealthAttr.getBaseValue());
         }
 
         // Apply damage
