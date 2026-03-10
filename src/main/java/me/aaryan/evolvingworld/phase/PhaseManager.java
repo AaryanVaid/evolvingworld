@@ -71,6 +71,7 @@ public class PhaseManager {
         Bukkit.broadcastMessage(
                 "§6⚡ The world has evolved to §ePhase " + currentPhase.getLevel()
         );
+
     }
 
 }
