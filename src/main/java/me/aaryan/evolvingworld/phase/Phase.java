@@ -16,7 +16,8 @@ public enum Phase {
     public int getLevel() {
         return level;
     }
-    public static Phase getByLevel(int level) {
+
+    public static Phase fromLevel(int level) {
         for (Phase phase : values()) {
             if (phase.level == level) {
                 return phase;
