@@ -36,7 +36,8 @@ public class PlayerPhaseManager {
         plugin.saveConfig();
     }
 
-    public boolean advancePlayerPhase(Player player) {
+    // Renamed this to match your Listener's call!
+    public boolean tryAdvancePlayerPhase(Player player) {
         Phase current = getPlayerPhase(player);
 
         if (current == Phase.PHASE_4) return false;
