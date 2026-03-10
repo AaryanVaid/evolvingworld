@@ -1,6 +1,7 @@
 package me.aaryan.evolvingworld.phase;
 
 public enum Phase {
+
     PHASE_1(1),
     PHASE_2(2),
     PHASE_3(3),
