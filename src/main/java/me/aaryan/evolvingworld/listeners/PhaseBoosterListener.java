@@ -32,8 +32,8 @@ public class PhaseBoosterListener implements Listener {
 
         int boosterLevel = PhaseBoosterItem.getBoosterLevel(item);
 
-        Phase playerPhase = plugin.getPlayerPhaseManager().getPlayerPhase(player);
-        Phase worldPhase = plugin.getPhaseManager().getCurrentPhase();
+        Phase playerPhase = plugin.getPlayerPhaseManager()
+                .getPlayerPhase(player);
 
         // ❌ Booster must match player's current phase
         if (boosterLevel != playerPhase.getLevel()) {
