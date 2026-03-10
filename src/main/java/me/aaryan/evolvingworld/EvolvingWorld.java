@@ -28,6 +28,9 @@ public class EvolvingWorld extends JavaPlugin {
         getCommand("phasebooster").setExecutor(
                 new GivePhaseBoosterCommand()
         );
+        getCommand("phasedebug").setExecutor(
+                new PhaseDebugCommand(this)
+        );
         PhaseBoosterRecipe.registerAll(this);
 
 
