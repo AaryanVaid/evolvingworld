@@ -36,6 +36,7 @@ public class PhaseBoosterItem {
         );
 
         item.setItemMeta(meta);
+
         return item;
     }
 
