@@ -20,6 +20,7 @@ public class PhaseBoosterItem {
 
     // ✅ Create booster for a specific phase
     public static ItemStack create(Phase phase) {
+
         ItemStack item = new ItemStack(Material.NETHER_STAR);
         ItemMeta meta = item.getItemMeta();
 
