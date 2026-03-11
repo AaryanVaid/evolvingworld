@@ -41,7 +41,10 @@ public class PhaseBoosterItem {
     }
 
     public static boolean isPhaseBooster(ItemStack item) {
-        if (item == null || !item.hasItemMeta()) return false;
+
+        if (item == null || !item.hasItemMeta()) {
+            return false;
+        }
 
         return item.getItemMeta()
                 .getPersistentDataContainer()
