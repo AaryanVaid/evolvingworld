@@ -21,8 +21,11 @@ public class PhaseBoosterListener implements Listener {
     @EventHandler
     public void onUse(PlayerInteractEvent event) {
 
-        if (event.getAction() != Action.RIGHT_CLICK_AIR &&
-                event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
+        Action action = event.getAction();
+
+        if (action != Action.RIGHT_CLICK_AIR && action != Action.RIGHT_CLICK_BLOCK) {
+            return;
+        }
 
         ItemStack item = event.getItem();
 
