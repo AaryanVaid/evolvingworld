@@ -26,6 +26,7 @@ public class PhaseBoosterItem {
         if (meta == null) return item;
 
         meta.setDisplayName("§dPhase " + phase.getLevel() + " Booster");
+
         meta.setLore(List.of(
                 "§7Use this to advance",
                 "§7from Phase " + phase.getLevel()
