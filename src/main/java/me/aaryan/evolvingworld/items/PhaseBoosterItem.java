@@ -46,8 +46,13 @@ public class PhaseBoosterItem {
             return false;
         }
 
-        return item.getItemMeta()
-                .getPersistentDataContainer()
+        ItemMeta meta = item.getItemMeta();
+
+        if (meta == null) {
+            return false;
+        }
+
+        return meta.getPersistentDataContainer()
                 .has(PHASE_KEY, PersistentDataType.INTEGER);
     }
 
