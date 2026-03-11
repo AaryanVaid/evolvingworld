@@ -29,7 +29,9 @@ public class PhaseBoosterListener implements Listener {
 
         ItemStack item = event.getItem();
 
-        if (!PhaseBoosterItem.isPhaseBooster(item)) return;
+        if (!PhaseBoosterItem.isPhaseBooster(item)) {
+            return;
+        }
 
         event.setCancelled(true);
 
