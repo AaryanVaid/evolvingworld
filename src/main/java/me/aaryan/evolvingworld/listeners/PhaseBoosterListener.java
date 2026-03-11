@@ -51,7 +51,10 @@ public class PhaseBoosterListener implements Listener {
         boolean advanced = plugin.getPlayerPhaseManager()
                 .tryAdvancePlayerPhase(player);
 
-        if (!advanced) return;
+        if (!advanced) {
+            player.sendMessage("§cYou cannot advance any further.");
+            return;
+        }
 
         Phase newPhase = plugin.getPlayerPhaseManager()
                 .getPlayerPhase(player);
