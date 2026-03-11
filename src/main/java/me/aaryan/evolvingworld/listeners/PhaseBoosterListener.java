@@ -56,10 +56,11 @@ public class PhaseBoosterListener implements Listener {
         Phase newPhase = plugin.getPlayerPhaseManager()
                 .getPlayerPhase(player);
 
-        player.sendMessage(
-                "§aYou have advanced to §ePhase " +
-                        newPhase.getLevel() + "§a!"
-        );
+        player.sendMessage("§aYou have advanced to §ePhase " +
+                newPhase.getLevel() + "§a!");
+
+        // consume booster safely
+        int amount = item.getAmount();
 
         if (amount <= 1) {
             player.getInventory().remove(item);
