@@ -56,7 +56,6 @@ public class PhaseBoosterItem {
                 .has(PHASE_KEY, PersistentDataType.INTEGER);
     }
 
-    // ✅ THIS FIXES YOUR ERROR
     public static int getBoosterLevel(ItemStack item) {
 
         if (!isPhaseBooster(item)) {
