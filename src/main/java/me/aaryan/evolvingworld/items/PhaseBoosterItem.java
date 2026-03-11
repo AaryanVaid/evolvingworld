@@ -40,7 +40,6 @@ public class PhaseBoosterItem {
         return item;
     }
 
-    // ✅ Identify booster
     public static boolean isPhaseBooster(ItemStack item) {
         if (item == null || !item.hasItemMeta()) return false;
 
