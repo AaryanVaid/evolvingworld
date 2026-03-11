@@ -23,6 +23,8 @@ public class PhaseBoosterItem {
         ItemStack item = new ItemStack(Material.NETHER_STAR);
         ItemMeta meta = item.getItemMeta();
 
+        if (meta == null) return item;
+
         meta.setDisplayName("§dPhase " + phase.getLevel() + " Booster");
         meta.setLore(List.of(
                 "§7Use this to advance",
