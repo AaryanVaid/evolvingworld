@@ -60,7 +60,11 @@ public class PhaseBoosterItem {
     public static int getBoosterLevel(ItemStack item) {
         if (!isPhaseBooster(item)) return -1;
 
-        return item.getItemMeta()
+        if (!isPhaseBooster(item)) {
+            return -1;
+        }
+
+        Integer level = item.getItemMeta()
                 .getPersistentDataContainer()
                 .get(PHASE_KEY, PersistentDataType.INTEGER);
     }
