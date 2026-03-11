@@ -18,7 +18,6 @@ public class PhaseBoosterItem {
         PHASE_KEY = new NamespacedKey(plugin, "phase_booster_level");
     }
 
-    // ✅ Create booster for a specific phase
     public static ItemStack create(Phase phase) {
 
         ItemStack item = new ItemStack(Material.NETHER_STAR);
