@@ -58,7 +58,6 @@ public class PhaseBoosterItem {
 
     // ✅ THIS FIXES YOUR ERROR
     public static int getBoosterLevel(ItemStack item) {
-        if (!isPhaseBooster(item)) return -1;
 
         if (!isPhaseBooster(item)) {
             return -1;
