@@ -61,8 +61,14 @@ public class PhaseBoosterListener implements Listener {
                         newPhase.getLevel() + "§a!"
         );
 
-        // consume booster
-        item.setAmount(item.getAmount() - 1);
+        if (amount <= 1) {
+            player.getInventory().remove(item);
+        } else {
+            item.setAmount(amount - 1);
+        }
+
+        // 🔥 IMPORTANT: check world evolution after player advances
+        plugin.getPhaseManager().checkWorldProgress();
 
     }
 }
