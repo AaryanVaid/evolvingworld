@@ -27,7 +27,7 @@ public class ArmorBuffListener implements Listener {
             if (armor == null) continue;
 
             if (ToolMasteryUtil.isMastered(armor, KEY)) {
-                reduction += 0.05; // 5% per piece
+                reduction += 0.08; // 🔥 8% per piece
             }
         }
 

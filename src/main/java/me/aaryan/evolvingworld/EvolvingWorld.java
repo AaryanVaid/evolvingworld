@@ -107,18 +107,11 @@ public class EvolvingWorld extends JavaPlugin {
         );
         NamespacedKey TOOL_MASTERY_KEY = new NamespacedKey(this, "tool_mastery");
 
-        Bukkit.getPluginManager().registerEvents(
-                new ToolShardListener(TOOL_MASTERY_KEY),
-                this
-        );
-        Bukkit.getPluginManager().registerEvents(
-                new SwordBuffListener(TOOL_MASTERY_KEY), this);
-
-        Bukkit.getPluginManager().registerEvents(
-                new PickaxeBuffListener(TOOL_MASTERY_KEY), this);
-
-        Bukkit.getPluginManager().registerEvents(
-                new ArmorBuffListener(TOOL_MASTERY_KEY), this);
+        Bukkit.getPluginManager().registerEvents(new ToolShardListener(TOOL_MASTERY_KEY), this);
+        Bukkit.getPluginManager().registerEvents(new SwordBuffListener(TOOL_MASTERY_KEY), this);
+        Bukkit.getPluginManager().registerEvents(new AxeBuffListener(TOOL_MASTERY_KEY), this);
+        Bukkit.getPluginManager().registerEvents(new PickaxeBuffListener(TOOL_MASTERY_KEY), this);
+        Bukkit.getPluginManager().registerEvents(new ArmorBuffListener(TOOL_MASTERY_KEY), this);
 
         auraManager = new AuraManager(TOOL_MASTERY_KEY);
         Bukkit.getScheduler().runTaskTimer(this, () -> {

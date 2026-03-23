@@ -7,11 +7,11 @@ import org.bukkit.event.*;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class SwordBuffListener implements Listener {
+public class AxeBuffListener implements Listener {
 
     private final NamespacedKey KEY;
 
-    public SwordBuffListener(NamespacedKey key) {
+    public AxeBuffListener(NamespacedKey key) {
         this.KEY = key;
     }
 
@@ -23,11 +23,11 @@ public class SwordBuffListener implements Listener {
         ItemStack item = player.getInventory().getItemInMainHand();
 
         if (item == null) return;
-        if (!item.getType().toString().contains("SWORD")) return;
+        if (!item.getType().toString().contains("AXE")) return;
 
         if (!ToolMasteryUtil.isMastered(item, KEY)) return;
 
-        // 🔥 +35% damage (applied once per hit, no stacking)
-        event.setDamage(event.getDamage() * 1.35);
+        // 🔥 +25% damage
+        event.setDamage(event.getDamage() * 1.25);
     }
 }
