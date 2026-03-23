@@ -7,6 +7,7 @@ import me.aaryan.evolvingworld.items.PhaseBoosterItem;
 import me.aaryan.evolvingworld.items.PhaseBoosterRecipe;
 import me.aaryan.evolvingworld.listeners.*;
 import me.aaryan.evolvingworld.phase.PhaseManager;
+import me.aaryan.evolvingworld.rift.RiftManager;
 import me.aaryan.evolvingworld.world.WorldPhaseRewardManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import me.aaryan.evolvingworld.player.PlayerPhaseManager;
@@ -16,6 +17,7 @@ public class EvolvingWorld extends JavaPlugin {
     private PlayerPhaseManager playerPhaseManager;
     private WorldPhaseRewardManager worldPhaseRewardManager;
     private PhaseManager phaseManager;
+    private RiftManager riftManager;
 
     @Override
     public void onEnable() {
@@ -74,7 +76,12 @@ public class EvolvingWorld extends JavaPlugin {
         getServer().getPluginManager().registerEvents(
                 new MobDifficultyListener(this), this
         );
+        riftManager = new RiftManager(this);
 
+        Bukkit.getPluginManager().registerEvents(
+                new RiftMobDeathListener(this),
+                this
+        );
     }
     public PlayerPhaseManager getPlayerPhaseManager() {
         return playerPhaseManager;
@@ -86,6 +93,10 @@ public class EvolvingWorld extends JavaPlugin {
 
     public WorldPhaseRewardManager getWorldPhaseRewardManager() {
         return worldPhaseRewardManager;
+    }
+
+    public RiftManager getRiftManager() {
+        return riftManager;
     }
 
 }
