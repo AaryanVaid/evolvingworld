@@ -74,5 +74,36 @@ public class Rift {
         active = false;
 
         Bukkit.broadcastMessage("§5A Rift has been closed!");
+
+        rewardTopPlayer();
+    }
+
+    // 🔥 FIND TOP PLAYER
+    private void rewardTopPlayer() {
+
+        if (contributions.isEmpty()) return;
+
+        UUID top = null;
+        double max = 0;
+
+        for (Map.Entry<UUID, Double> entry : contributions.entrySet()) {
+            if (entry.getValue() > max) {
+                max = entry.getValue();
+                top = entry.getKey();
+            }
+        }
+
+        if (top == null) return;
+
+        var player = Bukkit.getPlayer(top);
+
+        if (player != null) {
+            player.sendMessage("§6You were the top contributor!");
+
+            // 🔥 Placeholder reward (we replace with shard later)
+            player.getInventory().addItem(
+                    new org.bukkit.inventory.ItemStack(org.bukkit.Material.DIAMOND)
+            );
+        }
     }
 }
