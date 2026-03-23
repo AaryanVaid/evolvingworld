@@ -63,12 +63,9 @@ public class PhaseManager {
     }
 
     public void advancePhase() {
+        if (currentPhase == Phase.PHASE_4) return;
 
-        Phase next = currentPhase.next();
-
-        if (next == null) return;
-
-        currentPhase = next;
+        currentPhase = currentPhase.next();
 
         plugin.getConfig().set("server-phase", currentPhase.getLevel());
         plugin.saveConfig();
@@ -77,6 +74,7 @@ public class PhaseManager {
                 "§6⚡ The world has evolved to §ePhase " + currentPhase.getLevel()
         );
 
+        // 🔥 GIVE REWARDS HERE
+        plugin.getWorldPhaseRewardManager().distributeRewards();
     }
-
 }

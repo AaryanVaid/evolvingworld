@@ -1,14 +1,21 @@
 package me.aaryan.evolvingworld;
 
+import me.aaryan.evolvingworld.abilities.AbilityManager;
+import me.aaryan.evolvingworld.aura.AuraManager;
 import me.aaryan.evolvingworld.commands.GivePhaseBoosterCommand;
 import me.aaryan.evolvingworld.commands.PhaseCommand;
 import me.aaryan.evolvingworld.commands.PhaseDebugCommand;
+import me.aaryan.evolvingworld.commands.RiftCommand;
 import me.aaryan.evolvingworld.items.PhaseBoosterItem;
 import me.aaryan.evolvingworld.items.PhaseBoosterRecipe;
+import me.aaryan.evolvingworld.items.RiftShard;
+import me.aaryan.evolvingworld.items.ToolShard;
 import me.aaryan.evolvingworld.listeners.*;
 import me.aaryan.evolvingworld.phase.PhaseManager;
 import me.aaryan.evolvingworld.rift.RiftManager;
 import me.aaryan.evolvingworld.world.WorldPhaseRewardManager;
+import org.bukkit.NamespacedKey;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import me.aaryan.evolvingworld.player.PlayerPhaseManager;
 import org.bukkit.Bukkit;
@@ -18,12 +25,16 @@ public class EvolvingWorld extends JavaPlugin {
     private WorldPhaseRewardManager worldPhaseRewardManager;
     private PhaseManager phaseManager;
     private RiftManager riftManager;
+    private AbilityManager abilityManager;
+    private AuraManager auraManager;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
 
         PhaseBoosterItem.init(this);
+        RiftShard.init(this);
+        ToolShard.init(this);
 
         phaseManager = new PhaseManager(this);
 
@@ -86,7 +97,37 @@ public class EvolvingWorld extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(
                 new RiftDamageListener(this),
                 this
+
         );
+        abilityManager = new AbilityManager();
+
+        Bukkit.getPluginManager().registerEvents(
+                new ShardAbilityListener(this),
+                this
+        );
+        NamespacedKey TOOL_MASTERY_KEY = new NamespacedKey(this, "tool_mastery");
+
+        Bukkit.getPluginManager().registerEvents(
+                new ToolShardListener(TOOL_MASTERY_KEY),
+                this
+        );
+        Bukkit.getPluginManager().registerEvents(
+                new SwordBuffListener(TOOL_MASTERY_KEY), this);
+
+        Bukkit.getPluginManager().registerEvents(
+                new PickaxeBuffListener(TOOL_MASTERY_KEY), this);
+
+        Bukkit.getPluginManager().registerEvents(
+                new ArmorBuffListener(TOOL_MASTERY_KEY), this);
+
+        auraManager = new AuraManager(TOOL_MASTERY_KEY);
+        Bukkit.getScheduler().runTaskTimer(this, () -> {
+
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                auraManager.tick(player);
+            }
+
+        }, 0L, 10L); // every 0.5 sec
     }
     public PlayerPhaseManager getPlayerPhaseManager() {
         return playerPhaseManager;
@@ -102,6 +143,9 @@ public class EvolvingWorld extends JavaPlugin {
 
     public RiftManager getRiftManager() {
         return riftManager;
+    }
+    public AbilityManager getAbilityManager() {
+        return abilityManager;
     }
 
 }

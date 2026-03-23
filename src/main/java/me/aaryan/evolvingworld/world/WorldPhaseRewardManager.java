@@ -1,39 +1,51 @@
 package me.aaryan.evolvingworld.world;
 
-import me.aaryan.evolvingworld.phase.Phase;
-import org.bukkit.Material;
+import me.aaryan.evolvingworld.items.ToolShard;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
+
+import java.util.LinkedHashSet;
+import java.util.UUID;
 
 public class WorldPhaseRewardManager {
 
-    public void giveReward(Player player, Phase phase) {
+    private final LinkedHashSet<UUID> contributors = new LinkedHashSet<>();
 
-        switch (phase) {
+    // ✅ track contribution (order matters)
+    public void addContributor(Player player) {
+        contributors.add(player.getUniqueId());
+    }
 
-            case PHASE_2 -> {
+    // ✅ distribute rewards
+    public void distributeRewards() {
+
+        int position = 0;
+
+        for (UUID uuid : contributors) {
+
+            Player player = Bukkit.getPlayer(uuid);
+            if (player == null) continue;
+
+            position++;
+
+            int shards = switch (position) {
+                case 1 -> 3;
+                case 2 -> 2;
+                case 3 -> 1;
+                default -> 0;
+            };
+
+            if (shards > 0) {
                 player.getInventory().addItem(
-                        new ItemStack(Material.IRON_INGOT, 64)
+                        ToolShard.create().asQuantity(shards)
                 );
-                player.giveExp(10);
-                player.sendMessage("§6You pushed the world to Phase 2!");
-            }
 
-            case PHASE_3 -> {
-                player.getInventory().addItem(
-                        new ItemStack(Material.DIAMOND, 12)
-                );
-                player.giveExp(20);
-                player.sendMessage("§bYou pushed the world to Phase 3!");
-            }
-
-            case PHASE_4 -> {
-                player.getInventory().addItem(
-                        new ItemStack(Material.NETHERITE_SCRAP, 4)
-                );
-                player.giveExp(30);
-                player.sendMessage("§dYou pushed the world to the FINAL phase!");
+                player.sendMessage("§aYou received " + shards + " Mastery Shard(s)!");
+            } else {
+                player.sendMessage("§7You contributed but didn't get shards.");
             }
         }
+
+        contributors.clear(); // reset for next phase
     }
 }

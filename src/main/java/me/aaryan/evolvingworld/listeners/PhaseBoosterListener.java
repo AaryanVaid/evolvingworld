@@ -27,29 +27,25 @@ public class PhaseBoosterListener implements Listener {
             return;
         }
 
+        Player player = event.getPlayer();
         ItemStack item = event.getItem();
 
-        if (!PhaseBoosterItem.isPhaseBooster(item)) {
-            return;
-        }
+        if (!PhaseBoosterItem.isPhaseBooster(item)) return;
 
         event.setCancelled(true);
-
-        Player player = event.getPlayer();
 
         int boosterLevel = PhaseBoosterItem.getBoosterLevel(item);
 
         Phase playerPhase = plugin.getPlayerPhaseManager()
                 .getPlayerPhase(player);
 
-        // Booster must match player phase
+        // ❌ Booster must match current phase
         if (boosterLevel != playerPhase.getLevel()) {
-
             player.sendMessage("§cYou can only use your current phase booster.");
             return;
-
         }
 
+        // 🚀 Try advancing player
         boolean advanced = plugin.getPlayerPhaseManager()
                 .tryAdvancePlayerPhase(player);
 
@@ -58,23 +54,24 @@ public class PhaseBoosterListener implements Listener {
             return;
         }
 
+        // ✅ SUCCESS
         Phase newPhase = plugin.getPlayerPhaseManager()
                 .getPlayerPhase(player);
 
         player.sendMessage("§aYou have advanced to §ePhase " +
                 newPhase.getLevel() + "§a!");
 
-        // consume booster safely
-        int amount = item.getAmount();
+        // 🔥 ADD CONTRIBUTOR (CRITICAL)
+        plugin.getWorldPhaseRewardManager().addContributor(player);
 
-        if (amount <= 1) {
-            player.getInventory().remove(item);
+        // 🧪 consume booster safely
+        if (item.getAmount() <= 1) {
+            player.getInventory().setItemInMainHand(null);
         } else {
-            item.setAmount(amount - 1);
+            item.setAmount(item.getAmount() - 1);
         }
 
-        // 🔥 IMPORTANT: check world evolution after player advances
+        // 🌍 check world evolution AFTER contribution is registered
         plugin.getPhaseManager().checkWorldProgress();
-
     }
 }

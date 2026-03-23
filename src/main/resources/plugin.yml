@@ -11,3 +11,6 @@ commands:
   phasedebug:
     description: Debug world phase system
     usage: /phasedebug
+  rift:
+    description: Rift Command
+    usage: /rift
