@@ -83,6 +83,10 @@ public class EvolvingWorld extends JavaPlugin {
                 new RiftMobDeathListener(this),
                 this
         );
+        Bukkit.getPluginManager().registerEvents(
+                new RiftDamageListener(this),
+                this
+        );
     }
     public PlayerPhaseManager getPlayerPhaseManager() {
         return playerPhaseManager;
