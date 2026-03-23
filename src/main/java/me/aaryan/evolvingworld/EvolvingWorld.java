@@ -34,6 +34,7 @@ public class EvolvingWorld extends JavaPlugin {
         getCommand("phasedebug").setExecutor(
                 new PhaseDebugCommand(this)
         );
+        getCommand("rift").setExecutor(new RiftCommand(this));
         PhaseBoosterRecipe.registerAll(this);
 
 
