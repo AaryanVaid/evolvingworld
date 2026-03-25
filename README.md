@@ -12,7 +12,9 @@ Features
 Update V.1.1
 Re-Writing of my old code with some QOL and commands for debugging, Major change of World Phase being completely independent and is not directly linked to a single player phase, Rather, A percentage allotment to keep new players safe.
 Update V.1.2 
-Till now, Added Masteries to tools, Shards for upgrades and abilities, rifts for the shards, and bug fixes (many....)
+- Added Masteries to tools
+- Shards for upgrades and abilities
+- rifts for the shards, and bug fixes (many....)
 Also Subtle VFX for funzies.
 Update V.1.3- (Last Core changing Update)
 - Global Rifts (Locked with world phase)
