@@ -2,16 +2,14 @@ package me.aaryan.evolvingworld;
 
 import me.aaryan.evolvingworld.abilities.AbilityManager;
 import me.aaryan.evolvingworld.aura.AuraManager;
-import me.aaryan.evolvingworld.commands.GivePhaseBoosterCommand;
-import me.aaryan.evolvingworld.commands.PhaseCommand;
-import me.aaryan.evolvingworld.commands.PhaseDebugCommand;
-import me.aaryan.evolvingworld.commands.RiftCommand;
+import me.aaryan.evolvingworld.commands.*;
 import me.aaryan.evolvingworld.items.PhaseBoosterItem;
 import me.aaryan.evolvingworld.items.PhaseBoosterRecipe;
 import me.aaryan.evolvingworld.items.RiftShard;
 import me.aaryan.evolvingworld.items.ToolShard;
 import me.aaryan.evolvingworld.listeners.*;
 import me.aaryan.evolvingworld.phase.PhaseManager;
+import me.aaryan.evolvingworld.rift.GlobalRiftManager;
 import me.aaryan.evolvingworld.rift.RiftManager;
 import me.aaryan.evolvingworld.world.WorldPhaseRewardManager;
 import org.bukkit.NamespacedKey;
@@ -27,6 +25,7 @@ public class EvolvingWorld extends JavaPlugin {
     private RiftManager riftManager;
     private AbilityManager abilityManager;
     private AuraManager auraManager;
+    private GlobalRiftManager globalRiftManager;
 
     @Override
     public void onEnable() {
@@ -47,6 +46,7 @@ public class EvolvingWorld extends JavaPlugin {
         );
         getCommand("rift").setExecutor(new RiftCommand(this));
         PhaseBoosterRecipe.registerAll(this);
+        getCommand("rifttest").setExecutor(new RiftTestCommand(this));
 
 
         getLogger().info("EvolvingWorld enabled successfully.");
@@ -112,7 +112,11 @@ public class EvolvingWorld extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new AxeBuffListener(TOOL_MASTERY_KEY), this);
         Bukkit.getPluginManager().registerEvents(new PickaxeBuffListener(TOOL_MASTERY_KEY), this);
         Bukkit.getPluginManager().registerEvents(new ArmorBuffListener(TOOL_MASTERY_KEY), this);
+        globalRiftManager = new GlobalRiftManager(this);
 
+        getServer().getPluginManager().registerEvents(
+                new RiftMobListener(this), this
+        );
         auraManager = new AuraManager(TOOL_MASTERY_KEY);
         Bukkit.getScheduler().runTaskTimer(this, () -> {
 
@@ -121,6 +125,7 @@ public class EvolvingWorld extends JavaPlugin {
             }
 
         }, 0L, 10L); // every 0.5 sec
+
     }
     public PlayerPhaseManager getPlayerPhaseManager() {
         return playerPhaseManager;
@@ -139,6 +144,9 @@ public class EvolvingWorld extends JavaPlugin {
     }
     public AbilityManager getAbilityManager() {
         return abilityManager;
+    }
+    public GlobalRiftManager getGlobalRiftManager() {
+        return globalRiftManager;
     }
 
 }

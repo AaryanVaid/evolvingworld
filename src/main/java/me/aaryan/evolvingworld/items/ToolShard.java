@@ -17,10 +17,13 @@ public class ToolShard {
         KEY = new NamespacedKey(plugin, "tool_shard");
     }
 
-    public static ItemStack create() {
+    // Changed: Accepts 'amount' instead of level
+    public static ItemStack create(int amount) {
 
-        ItemStack item = new ItemStack(Material.PRISMARINE_CRYSTALS);
+        ItemStack item = new ItemStack(Material.PRISMARINE_CRYSTALS, amount);
         ItemMeta meta = item.getItemMeta();
+
+        if (meta == null) return item;
 
         meta.setDisplayName("§bMastery Shard");
         meta.setLore(List.of(

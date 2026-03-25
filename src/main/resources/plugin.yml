@@ -14,3 +14,5 @@ commands:
   rift:
     description: Rift Command
     usage: /rift
+  rifttest:
+    description: Force a global rift to spawn.

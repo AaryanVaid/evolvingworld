@@ -18,11 +18,9 @@ public class WorldPhaseRewardManager {
 
     // ✅ distribute rewards
     public void distributeRewards() {
-
         int position = 0;
 
         for (UUID uuid : contributors) {
-
             Player player = Bukkit.getPlayer(uuid);
             if (player == null) continue;
 
@@ -36,9 +34,8 @@ public class WorldPhaseRewardManager {
             };
 
             if (shards > 0) {
-                player.getInventory().addItem(
-                        ToolShard.create().asQuantity(shards)
-                );
+                // Pass 'shards' directly into the create method
+                player.getInventory().addItem(ToolShard.create(shards));
 
                 player.sendMessage("§aYou received " + shards + " Mastery Shard(s)!");
             } else {
@@ -46,6 +43,6 @@ public class WorldPhaseRewardManager {
             }
         }
 
-        contributors.clear(); // reset for next phase
+        contributors.clear();
     }
 }
