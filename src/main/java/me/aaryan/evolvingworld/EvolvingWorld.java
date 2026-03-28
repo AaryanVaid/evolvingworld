@@ -113,6 +113,9 @@ public class EvolvingWorld extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PickaxeBuffListener(TOOL_MASTERY_KEY), this);
         Bukkit.getPluginManager().registerEvents(new ArmorBuffListener(TOOL_MASTERY_KEY), this);
         globalRiftManager = new GlobalRiftManager(this);
+        Bukkit.getScheduler().runTaskTimer(this, () -> {
+            globalRiftManager.trySpawnRift();
+        }, 1200L, 1200L);
 
         getServer().getPluginManager().registerEvents(
                 new RiftMobListener(this), this
