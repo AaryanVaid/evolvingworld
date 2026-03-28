@@ -246,7 +246,8 @@ public class GlobalRiftManager implements Listener {
         }
 
         spawnMonument(c, winnerName);
-        Bukkit.broadcastMessage("§b§l» §fThe Rift has imploded. The sun begins to rise once more.");
+        Bukkit.broadcastMessage("§b§l» §fThe Rift has imploded. The world stabilizes.");
+        stopGlobalEffects();
         cleanupRift();
     }
 
