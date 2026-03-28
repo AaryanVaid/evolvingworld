@@ -226,8 +226,8 @@ public class GlobalRiftManager implements Listener {
         if (activeRift == null) return;
         Location c = activeRift.getCenter();
 
-        c.getWorld().spawnParticle(Particle.EXPLOSION_EMITTER, c, 15, 5, 5, 5, 0.2);
-        c.getWorld().playSound(c, Sound.ENTITY_GENERIC_EXPLODE, 10f, 0.1f);
+        c.getWorld().playSound(c, Sound.ENTITY_WITHER_DEATH, 10f, 1f);
+        c.getWorld().spawnParticle(Particle.EXPLOSION_EMITTER, c, 15, 3, 3, 3, 0.2);
 
         createPermanentScar(c);
 
