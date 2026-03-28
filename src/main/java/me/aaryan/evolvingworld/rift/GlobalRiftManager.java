@@ -35,6 +35,9 @@ public class GlobalRiftManager implements Listener {
         this.riftMobKey = new NamespacedKey(plugin, "rift_mob");
         // Crucial: Register events so the global penalties work
         Bukkit.getPluginManager().registerEvents(this, plugin);
+
+        // Feature 1: Lingering Miasma Background Task
+        startPermanentMiasmaTask();
     }
 
     public GlobalRift getActiveRift() { return activeRift; }
