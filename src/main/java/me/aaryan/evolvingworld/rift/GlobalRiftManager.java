@@ -86,7 +86,7 @@ public class GlobalRiftManager implements Listener {
                     return;
                 }
 
-                // 1. Update BossBar (Progress = TotalKills / TargetKills)
+                // 1. Update BossBar
                 double progress = (double) activeRift.getTotalKills() / activeRift.getTargetKills();
                 riftBar.setProgress(Math.min(1.0, progress));
                 riftBar.setTitle("§4§lRIFT INSTABILITY: §f" + activeRift.getTotalKills() + "§7/100 Kills");
