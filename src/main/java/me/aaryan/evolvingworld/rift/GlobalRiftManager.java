@@ -29,6 +29,7 @@ public class GlobalRiftManager implements Listener {
 
     private GlobalRift activeRift;
     private BossBar riftBar;
+    private int totalSpawnedCount = 0;
 
     public GlobalRiftManager(EvolvingWorld plugin) {
         this.plugin = plugin;
