@@ -95,8 +95,6 @@ public class GlobalRiftManager implements Listener {
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     // Visual: Locked at Night
                     p.setPlayerTime(18000, false);
-
-                    // Physical: Constant Weakness & Hunger
                     p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 100, 0, true, false));
                     p.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 100, 0, true, false));
 
