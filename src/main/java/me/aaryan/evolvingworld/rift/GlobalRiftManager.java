@@ -299,8 +299,8 @@ public class GlobalRiftManager implements Listener {
 
     private Location getRandomLocation() {
         World world = Bukkit.getWorlds().get(0);
-        int x = random.nextInt(6000) - 3000;
-        int z = random.nextInt(6000) - 3000;
+        int x = random.nextInt(4000) - 2000;
+        int z = random.nextInt(4000) - 2000;
         return new Location(world, x, world.getHighestBlockYAt(x, z) + 1, z);
     }
 }
