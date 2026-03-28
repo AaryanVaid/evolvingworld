@@ -33,7 +33,6 @@ public class GlobalRiftManager implements Listener {
     public GlobalRiftManager(EvolvingWorld plugin) {
         this.plugin = plugin;
         this.riftMobKey = new NamespacedKey(plugin, "rift_mob");
-        // Crucial: Register events so the global penalties work
         Bukkit.getPluginManager().registerEvents(this, plugin);
 
         // Feature 1: Lingering Miasma Background Task
