@@ -113,7 +113,6 @@ public class GlobalRiftManager implements Listener {
                 tickVisuals(activeRift.getCenter(), activeRift.getType());
                 spawnRiftDefenders(activeRift.getCenter());
 
-                // Check for completion
                 if (activeRift.getTotalKills() >= activeRift.getTargetKills()) {
                     endRift();
                     this.cancel();
