@@ -69,9 +69,6 @@ public class GlobalRiftManager implements Listener {
         generateColossalStructureOptimized(loc, type);
         announce(loc, type);
         startGlobalInfectionLoop();
-
-        // Debug Log
-        System.out.println("[RIFT] Spawned at " + loc.getBlockX() + " " + loc.getBlockZ() + ". Target: 100 kills.");
     }
 
     // ================= THE GLOBAL INFECTION LOOP =================
