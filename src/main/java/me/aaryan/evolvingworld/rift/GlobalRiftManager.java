@@ -265,6 +265,7 @@ public class GlobalRiftManager implements Listener {
         TextDisplay display = (TextDisplay) loc.getWorld().spawnEntity(loc.clone().add(0, 3, 0), EntityType.TEXT_DISPLAY);
         String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         display.setText("§6§l— DIMENSIONAL SCAR —\n§7Date: §f" + date + "\n§7Champion: §b" + winnerName);
+        display.setCustomName("SCAR_MONUMENT");
         display.setBillboard(Display.Billboard.CENTER);
     }
 
