@@ -122,6 +122,31 @@ public class GlobalRiftManager implements Listener {
         }.runTaskTimer(plugin, 0, 20);
     }
 
+    // ================= FEATURE 1: LINGERING MIASMA =================
+
+    private void startPermanentMiasmaTask() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    Block b = p.getLocation().getBlock().getRelative(0, -1, 0);
+                    if (b.getType() == Material.CRYING_OBSIDIAN || b.getType() == Material.OBSIDIAN) {
+                        boolean nearScar = p.getNearbyEntities(10, 5, 10).stream()
+                                .anyMatch(e -> e instanceof TextDisplay && e.getCustomName() != null && e.getCustomName().contains("SCAR"));
+
+                        if (nearScar) {
+                            p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 1, true, false));
+                            p.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 100, 0, true, false));
+                            if (random.nextDouble() < 0.1) {
+                                p.spawnParticle(Particle.WITCH, p.getLocation().add(0, 1, 0), 3, 0.2, 0.2, 0.2, 0.01);
+                            }
+                        }
+                    }
+                }
+            }
+        }.runTaskTimer(plugin, 0, 40);
+    }
+
     // ================= GLOBAL EVENT LISTENERS =================
 
     @EventHandler
