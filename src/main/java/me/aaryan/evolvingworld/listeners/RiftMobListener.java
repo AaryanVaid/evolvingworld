@@ -31,7 +31,6 @@ public class RiftMobListener implements Listener {
         // Add contribution point
         if (plugin.getGlobalRiftManager().getActiveRift() != null) {
             plugin.getGlobalRiftManager().addContribution(killer);
-            // Optional: killer.sendMessage("§d+1 Rift Point!");
         }
     }
 }
