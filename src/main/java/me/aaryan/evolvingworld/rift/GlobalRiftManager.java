@@ -271,6 +271,8 @@ public class GlobalRiftManager implements Listener {
     private void stopGlobalEffects() {
         for (Player p : Bukkit.getOnlinePlayers()) {
             p.resetPlayerTime();
+            p.removePotionEffect(PotionEffectType.WEAKNESS);
+            p.removePotionEffect(PotionEffectType.HUNGER);
         }
         if (riftBar != null) {
             riftBar.removeAll();
