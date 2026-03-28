@@ -162,7 +162,21 @@ public class GlobalRiftManager implements Listener {
         }
     }
 
-    // ================= TERRAFORMING & VISUALS =================
+            LivingEntity e = (LivingEntity) center.getWorld().spawnEntity(spawn, type);
+            e.getPersistentDataContainer().set(riftMobKey, PersistentDataType.BYTE, (byte) 1);
+
+            // Feature 5: Adaptive Waves
+            if (isFinalWave) {
+                e.addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, 99999, 1));
+                if (e.getEquipment() != null) {
+                    e.getEquipment().setHelmet(new ItemStack(Material.GOLDEN_HELMET));
+                }
+                e.setCustomName("§6§lRift Guardian");
+                e.setCustomNameVisible(true);
+            }
+            totalSpawnedCount++;
+        }
+    }
 
     private void generateColossalStructureOptimized(Location center, RiftType type) {
         int radius = 30;
