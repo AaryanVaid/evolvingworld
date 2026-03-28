@@ -125,29 +125,6 @@ public class GlobalRiftManager implements Listener {
     // ================= GLOBAL EVENT LISTENERS =================
 
     @EventHandler
-    public void onGlobalLootNerf(EntityDeathEvent event) {
-        if (activeRift == null) return;
-        // The world is unstable; loot is rare. Halve all drops.
-        event.getDrops().forEach(stack -> stack.setAmount(Math.max(1, stack.getAmount() / 2)));
-    }
-
-    @EventHandler
-    public void onGlobalInfectedSpawn(CreatureSpawnEvent event) {
-        if (activeRift == null || event.getSpawnReason() != CreatureSpawnEvent.SpawnReason.NATURAL) return;
-
-        // 35% of all natural spawns worldwide become Rift Mobs
-        if (random.nextDouble() < 0.35) {
-            Location loc = event.getLocation();
-            event.setCancelled(true);
-
-            EntityType type = (activeRift.getType() == RiftType.NETHER) ? EntityType.WITHER_SKELETON : EntityType.ENDERMAN;
-            Entity e = loc.getWorld().spawnEntity(loc, type);
-            e.getPersistentDataContainer().set(riftMobKey, PersistentDataType.BYTE, (byte) 1);
-            e.setCustomName("§c§lDimension Breaker");
-        }
-    }
-
-    @EventHandler
     public void onRiftMobDeath(EntityDeathEvent event) {
         if (activeRift == null) return;
         if (!event.getEntity().getPersistentDataContainer().has(riftMobKey, PersistentDataType.BYTE)) return;
