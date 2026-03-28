@@ -58,7 +58,6 @@ public class GlobalRiftManager implements Listener {
 
     private void spawnProcess(RiftType type) {
         Location loc = getRandomLocation();
-        // Target 100 kills to close reality
         activeRift = new GlobalRift(loc, type, 100);
         totalSpawnedCount = 0;
 
