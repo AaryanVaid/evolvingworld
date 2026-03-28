@@ -100,7 +100,6 @@ public class GlobalRiftManager implements Listener {
                     p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 100, 0, true, false));
                     p.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 100, 0, true, false));
 
-                    // Distance-based rumble (louder if near)
                     if (p.getWorld().equals(activeRift.getCenter().getWorld())) {
                         double dist = p.getLocation().distance(activeRift.getCenter());
                         if (dist < 40 && random.nextDouble() < 0.15) {
