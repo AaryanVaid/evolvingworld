@@ -117,9 +117,6 @@ public class EvolvingWorld extends JavaPlugin {
             globalRiftManager.trySpawnRift();
         }, 1200L, 1200L);
 
-        getServer().getPluginManager().registerEvents(
-                new RiftMobListener(this), this
-        );
         auraManager = new AuraManager(TOOL_MASTERY_KEY);
         Bukkit.getScheduler().runTaskTimer(this, () -> {
 
