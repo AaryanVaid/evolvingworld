@@ -157,6 +157,9 @@ public class GlobalRiftManager implements Listener {
             activeRift.incrementKills();
             UUID id = killer.getUniqueId();
             activeRift.getContributions().put(id, activeRift.getContributions().getOrDefault(id, 0) + 1);
+            killer.sendActionBar("§c§lRift Kills: §f" + activeRift.getTotalKills() + "§7/100");
+        }
+    }
 
     // ================= SPAWNING & TERRAFORMING =================
 
