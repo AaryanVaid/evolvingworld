@@ -60,6 +60,7 @@ public class GlobalRiftManager implements Listener {
         Location loc = getRandomLocation();
         // Target 100 kills to close reality
         activeRift = new GlobalRift(loc, type, 100);
+        totalSpawnedCount = 0;
 
         String title = (type == RiftType.NETHER) ? "§4§lCORE BREACH: NETHER" : "§d§lEVENT HORIZON: VOID";
         riftBar = Bukkit.createBossBar(title, BarColor.RED, BarStyle.SEGMENTED_10);
