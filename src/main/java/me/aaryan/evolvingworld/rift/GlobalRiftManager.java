@@ -103,8 +103,9 @@ public class GlobalRiftManager implements Listener {
                     // Distance-based rumble (louder if near)
                     if (p.getWorld().equals(activeRift.getCenter().getWorld())) {
                         double dist = p.getLocation().distance(activeRift.getCenter());
-                        if (dist < 50 && random.nextDouble() < 0.2) {
-                            p.playSound(p.getLocation(), Sound.ENTITY_ENDER_DRAGON_FLAP, 0.5f, 0.2f);
+                        if (dist < 40 && random.nextDouble() < 0.15) {
+                            p.playSound(p.getLocation(), Sound.BLOCK_GLASS_BREAK, 0.6f, 1.8f);
+                            p.playSound(p.getLocation(), Sound.AMBIENT_CAVE, 0.8f, 0.5f);
                         }
                     }
                 }
