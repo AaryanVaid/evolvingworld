@@ -286,8 +286,15 @@ public class GlobalRiftManager implements Listener {
     }
 
     private void announce(Location loc, RiftType type) {
-        Bukkit.broadcastMessage("§0§l[§4§l!§0§l] §f§lCATASTROPHIC RIFT §fdetected near §e" + loc.getBlockX() + ", " + loc.getBlockZ());
-        Bukkit.broadcastMessage("§cThe world will remain in Eternal Night until 100 mobs are slain.");
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            p.playSound(p.getLocation(), Sound.ENTITY_WITHER_SPAWN, 1f, 1f);
+        }
+
+        String coordText = random.nextBoolean()
+                ? "X: §e" + loc.getBlockX() + " §7/ Z: §k???"
+                : "X: §k??? §7/ Z: §e" + loc.getBlockZ();
+
+        Bukkit.broadcastMessage("§0§l[§4§l!§0§l] §f§lRIFT OPENED §7at " + coordText);
     }
 
     private Location getRandomLocation() {
