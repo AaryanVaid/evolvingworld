@@ -91,7 +91,7 @@ public class GlobalRiftManager implements Listener {
                 riftBar.setProgress(Math.min(1.0, progress));
                 riftBar.setTitle("§4§lRIFT INSTABILITY: §f" + activeRift.getTotalKills() + "§7/§f" + activeRift.getTargetKills() + " Kills");
 
-                // 2. Global Penalties (Applied to everyone regardless of location)
+                // 2. Global Penalties & Feature 3: Ambient Echoes
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     p.setPlayerTime(18000, false);
                     p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 100, 0, true, false));
