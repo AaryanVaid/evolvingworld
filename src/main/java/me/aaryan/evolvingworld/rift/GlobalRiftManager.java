@@ -197,27 +197,7 @@ public class GlobalRiftManager implements Listener {
     private void tickVisuals(Location center, RiftType type) {
         World world = center.getWorld();
         if (world == null) return;
-        for (double y = 0; y < 100; y += 10) {
-            world.spawnParticle(type == RiftType.NETHER ? Particle.FLAME : Particle.WITCH, center.clone().add(0, y, 0), 10, 0.5, 5, 0.5, 0.02);
-        }
-    }
-
-    private void spawnRiftDefenders(Location center) {
-        long count = center.getWorld().getNearbyEntities(center, 40, 20, 40).stream()
-                .filter(e -> e.getPersistentDataContainer().has(riftMobKey, PersistentDataType.BYTE)).count();
-        if (count >= 30) return;
-
-        for (int i = 0; i < 3; i++) {
-            Location spawn = center.clone().add(random.nextInt(30) - 15, 1, random.nextInt(30) - 15);
-            EntityType type;
-            if (activeRift.getType() == RiftType.NETHER) {
-                type = random.nextBoolean() ? EntityType.WITHER_SKELETON : EntityType.BLAZE;
-            } else {
-                type = random.nextBoolean() ? EntityType.ENDERMAN : EntityType.SHULKER;
-            }
-            Entity e = center.getWorld().spawnEntity(spawn, type);
-            e.getPersistentDataContainer().set(riftMobKey, PersistentDataType.BYTE, (byte) 1);
-        }
+        world.spawnParticle(type == RiftType.NETHER ? Particle.FLAME : Particle.WITCH, center.clone().add(0, 5, 0), 20, 1, 3, 1, 0.05);
     }
 
     // ================= CONCLUSION =================
