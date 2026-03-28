@@ -158,9 +158,25 @@ public class GlobalRiftManager implements Listener {
             UUID id = killer.getUniqueId();
             activeRift.getContributions().put(id, activeRift.getContributions().getOrDefault(id, 0) + 1);
 
-            killer.sendActionBar("§c§lRift Kills: §f" + activeRift.getTotalKills() + "§7/§f" + activeRift.getTargetKills());
-        }
-    }
+    // ================= SPAWNING & TERRAFORMING =================
+
+    private void spawnRiftDefenders(Location center) {
+        long currentlyAlive = center.getWorld().getNearbyEntities(center, 50, 30, 50).stream()
+                .filter(e -> e.getPersistentDataContainer().has(riftMobKey, PersistentDataType.BYTE)).count();
+
+        if (currentlyAlive >= 30 || totalSpawnedCount >= 100) return;
+
+        int toSpawn = Math.min(3, 100 - totalSpawnedCount);
+        boolean isFinalWave = (activeRift.getTotalKills() >= 90);
+
+        for (int i = 0; i < toSpawn; i++) {
+            Location spawn = center.clone().add(random.nextInt(20) - 10, 1, random.nextInt(20) - 10);
+            EntityType type;
+            if (activeRift.getType() == RiftType.NETHER) {
+                type = random.nextBoolean() ? EntityType.WITHER_SKELETON : EntityType.BLAZE;
+            } else {
+                type = random.nextBoolean() ? EntityType.ENDERMAN : EntityType.SHULKER;
+            }
 
             LivingEntity e = (LivingEntity) center.getWorld().spawnEntity(spawn, type);
             e.getPersistentDataContainer().set(riftMobKey, PersistentDataType.BYTE, (byte) 1);
