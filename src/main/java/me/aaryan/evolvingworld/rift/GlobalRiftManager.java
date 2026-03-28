@@ -93,7 +93,6 @@ public class GlobalRiftManager implements Listener {
 
                 // 2. Global Penalties (Applied to everyone regardless of location)
                 for (Player p : Bukkit.getOnlinePlayers()) {
-                    // Visual: Locked at Night
                     p.setPlayerTime(18000, false);
                     p.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 100, 0, true, false));
                     p.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 100, 0, true, false));
