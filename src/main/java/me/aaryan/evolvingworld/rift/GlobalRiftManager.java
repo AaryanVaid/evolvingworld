@@ -241,7 +241,7 @@ public class GlobalRiftManager implements Listener {
             if (p != null) {
                 winnerName = p.getName();
                 p.getInventory().addItem(ToolShard.create(12));
-                p.sendMessage("§6§l[!] §fYou were the top Rift slayer! Awarded 12 Shards.");
+                p.sendMessage("§6§l[!] §fTop Slayer! Awarded 12 Shards.");
             }
         }
 
