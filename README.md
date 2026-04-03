@@ -23,3 +23,6 @@ Re-Writing of my old code with some QOL and commands for debugging, Major change
 - Winner gets 8 Mastery Shards.
 - Some Nauseatic Effects for Heavyness.
 - Lastly, More bug fixes with some suble SFX.
+
+
+THIS PROJECT IS ON BREAK (no idea when resumed), being a solo dev, this has gotten onto me mentally very quickly, and to save my mental health and peace, i'll be pausing this for now. 
