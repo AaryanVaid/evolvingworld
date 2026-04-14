@@ -11,4 +11,4 @@ Features
 (This is a new work in progress to a plugin I already built. Many things are already there but not shown here)
 for now, I've restarted the progress i did, since it did not belong my ideology.
 
-THIS PROJECT IS ON BREAK (no idea when resumed), being a solo dev, this has gotten onto me mentally very quickly, and to save my mental health and peace, i'll be pausing this for now. (I'll keep you posted when i do stuff because i can not fully commit tot his project yet)
+THIS PROJECT IS ON BREAK (no idea when resumed), being a solo dev, this has gotten onto me mentally very quickly, and to save my mental health and peace, i'll be pausing this for now. 
