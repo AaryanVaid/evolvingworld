@@ -74,7 +74,5 @@ public class PhaseManager {
                 "§6⚡ The world has evolved to §ePhase " + currentPhase.getLevel()
         );
 
-        // 🔥 GIVE REWARDS HERE
-        plugin.getWorldPhaseRewardManager().distributeRewards();
     }
 }

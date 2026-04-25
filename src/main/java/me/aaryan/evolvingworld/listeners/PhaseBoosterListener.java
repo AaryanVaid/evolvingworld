@@ -61,8 +61,6 @@ public class PhaseBoosterListener implements Listener {
         player.sendMessage("§aYou have advanced to §ePhase " +
                 newPhase.getLevel() + "§a!");
 
-        // 🔥 ADD CONTRIBUTOR (CRITICAL)
-        plugin.getWorldPhaseRewardManager().addContributor(player);
 
         // 🧪 consume booster safely
         if (item.getAmount() <= 1) {

@@ -11,3 +11,6 @@ commands:
   phasedebug:
     description: Debug world phase system
     usage: /phasedebug
+  giveability:
+    description: Give an ability
+    usage: /giveability <name>
